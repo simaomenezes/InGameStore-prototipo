@@ -8,6 +8,7 @@ using UnityEngine.UI;
 public class StoreManager : MonoBehaviour {
 
     public GameObject cardPanelPrefab;
+    public GameObject scrollArea;
 
     private const string WOOD_CANNON = "Wood Cannon";
     private const string BRONZE_CANNON = "Bronze Cannon";
@@ -29,6 +30,21 @@ public class StoreManager : MonoBehaviour {
     private void Awake()
     {
         MakeCardPanel();
+        AddScrollAbilities();
+    }
+
+
+    void AddScrollAbilities()
+    {
+        scrollArea.AddComponent<ScrollRect>();
+        scrollArea.GetComponent<ScrollRect>().vertical = false;
+        scrollArea.GetComponent<ScrollRect>().movementType = ScrollRect.MovementType.Elastic;
+
+        RectTransform scrollTransform = GameObject.Find("Card Holder").GetComponent<RectTransform>();
+        float scrollLength = 405 * GameManager.instance.GetComponent<CannonArray>().cannonPrefabs.Length;
+        scrollTransform.sizeDelta = new Vector2(scrollLength, 0);
+        scrollArea.GetComponent<ScrollRect>().content = scrollTransform;
+        scrollTransform.localPosition = new Vector3(500f, -287f, 0);
     }
 
     private void MakeCardPanel()

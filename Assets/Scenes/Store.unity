@@ -331,7 +331,7 @@ RectTransform:
   m_GameObject: {fileID: 199843377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.016133104, y: 0.016133104, z: 0.016133104}
+  m_LocalScale: {x: 0.016139925, y: 0.016139925, z: 0.016139925}
   m_Children:
   - {fileID: 89103189}
   - {fileID: 1350556005}
@@ -551,6 +551,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 818444039}
+  - component: {fileID: 818444042}
+  - component: {fileID: 818444041}
   m_Layer: 5
   m_Name: Scroll Area
   m_TagString: Untagged
@@ -577,6 +579,39 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &818444041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818444038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+--- !u!222 &818444042
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 818444038}
 --- !u!1 &1095080683
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,6 +926,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardPanelPrefab: {fileID: 1213934193092612, guid: 2c2c0787e1ca4c748955a742b9547421,
     type: 2}
+  scrollArea: {fileID: 818444038}
 --- !u!1 &1350556004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,7 +1259,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 0
     m_Right: 0
-    m_Top: -731
+    m_Top: -255
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 0

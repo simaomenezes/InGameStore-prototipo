@@ -75,6 +75,7 @@ GameObject:
   - component: {fileID: 222151014351846086}
   - component: {fileID: 114714499081846940}
   - component: {fileID: 114585331705083082}
+  - component: {fileID: 114373324851341188}
   m_Layer: 5
   m_Name: Buy/Use Button
   m_TagString: Untagged
@@ -166,6 +167,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Camoflauge Cannon dados de teste
+--- !u!114 &114373324851341188
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1696691121306592}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02fb9c617a6c27542944cbf5e1b14d2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114556161686085472
 MonoBehaviour:
   m_ObjectHideFlags: 1

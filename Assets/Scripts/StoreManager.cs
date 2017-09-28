@@ -7,8 +7,12 @@ using UnityEngine.UI;
 
 public class StoreManager : MonoBehaviour {
 
+    public static StoreManager instance;
+
     public GameObject cardPanelPrefab;
     public GameObject scrollArea;
+    public Text coinCountText;
+    public GameObject notEnoughCoinsPanel;
 
     private const string WOOD_CANNON = "Wood Cannon";
     private const string BRONZE_CANNON = "Bronze Cannon";
@@ -29,8 +33,22 @@ public class StoreManager : MonoBehaviour {
 
     private void Awake()
     {
+        MakeInstance();
         MakeCardPanel();
         AddScrollAbilities();
+    }
+
+    private void Update()
+    {
+        coinCountText.text = GameManager.CoinCount.ToString();
+    }
+
+    void MakeInstance()
+    {
+        if(instance == null)
+        {
+            instance = this;
+        }
     }
 
 
@@ -41,10 +59,10 @@ public class StoreManager : MonoBehaviour {
         scrollArea.GetComponent<ScrollRect>().movementType = ScrollRect.MovementType.Elastic;
 
         RectTransform scrollTransform = GameObject.Find("Card Holder").GetComponent<RectTransform>();
-        float scrollLength = 405 * GameManager.instance.GetComponent<CannonArray>().cannonPrefabs.Length;
+        float scrollLength = 510 * GameManager.instance.GetComponent<CannonArray>().cannonPrefabs.Length;
         scrollTransform.sizeDelta = new Vector2(scrollLength, 0);
         scrollArea.GetComponent<ScrollRect>().content = scrollTransform;
-        scrollTransform.localPosition = new Vector3(500f, -287f, 0);
+        scrollTransform.localPosition = new Vector3(594f, 20f, 0);
     }
 
     private void MakeCardPanel()
@@ -139,5 +157,10 @@ public class StoreManager : MonoBehaviour {
                     break;
             }
         }
+    }
+
+    public void CloseNotEnoughCoinsPanel()
+    {
+        StoreManager.instance.notEnoughCoinsPanel.gameObject.SetActive(false);
     }
 }

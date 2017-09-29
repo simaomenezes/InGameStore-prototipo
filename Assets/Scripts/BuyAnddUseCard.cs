@@ -24,75 +24,86 @@ public class BuyAnddUseCard : MonoBehaviour {
         // pegando o componente do tipo button
         currentButton = GetComponent<Button>();
         //adicionando um metodo para ser escutado pelo evento click do button (dinamico)
-        currentButton.onClick.AddListener(() => checkButtonInfo());
+        currentButton.onClick.AddListener(() => CheckButtonInfo());
     }
 
-    private void checkButtonInfo()
+    private void CheckButtonInfo()
     {
-        switch ("" + currentButton.GetComponentInParent<CardPanel>().cannonName.text)
+        Debug.Log(currentButton.GetComponentInParent<CardPanel>().cannonName.text);
+
+
+        switch (currentButton.GetComponentInParent<CardPanel>().cannonName.text)
         {
             case WOOD_CANNON:
                 GameManager.WOODCANNONCHECK = 0;
                 break;
 
             case BRONZE_CANNON:
-                if (GameManager.BRONZECANNONCHECK == 0)
-                {
-                    if (GameManager.CoinCount >= GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[1].GetComponent<Cannon>().cost)
-                    {
-                        GameManager.BRONZECANNONCHECK = 1;
-                        currentButton.GetComponentInChildren<Text>().text = "Use";
-                        GameManager.CoinCount -= GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[1].GetComponent<Cannon>().cost;
-                        GameManager.CANNONINDEXCHECK = 1;
-                    }
-                    else
-                    {
-                        StoreManager.instance.notEnoughCoinsPanel.gameObject.SetActive(true);
-                    }
-                } else
-                {
-                    GameManager.CANNONINDEXCHECK = 1;
-                }
-                
+                ActiveButtonInfo(GameManager.BRONZECANNONCHECK, 1);
                 break;
 
             case SILVER_CANNON:
-                GameManager.SILVERCANNONCHECK = 0;
+                ActiveButtonInfo(GameManager.SILVERCANNONCHECK, 2);
                 break;
 
             case ALUMINUN_CANNON:
-                GameManager.ALUMINUNCANNONCHECK = 0;
+                ActiveButtonInfo(GameManager.ALUMINUNCANNONCHECK, 3);
                 break;
 
             case FLAME_CANNON:
-                GameManager.FLAMECANNONCHECK = 0;
+                ActiveButtonInfo(GameManager.FLAMECANNONCHECK, 4);
 
                 break;
 
             case RAIBOW_CANNON:
-                GameManager.RAIBOWCANNONCHECK = 0;
+                ActiveButtonInfo(GameManager.RAIBOWCANNONCHECK, 5);
 
                 break;
 
             case CAMOFLAUGE_CANNON:
-                GameManager.CAMOFLAUGECANNONCHECK = 0;
+                ActiveButtonInfo(GameManager.CAMOFLAUGECANNONCHECK, 6);
 
                 break;
 
             case CARBONFIBER_CANNON:
-                GameManager.CARBONFIBERCANNONCHECK = 0;
+                ActiveButtonInfo(GameManager.CARBONFIBERCANNONCHECK, 7);
 
                 break;
 
             case GOLD_CANNON:
-                GameManager.GOLDCANNONCHECK = 0;
+                ActiveButtonInfo(GameManager.GOLDCANNONCHECK, 8);
 
                 break;
 
             case DIAMOND_CANNON:
-                GameManager.DIAMONDCANNONCHECK = 0;
-                
+                ActiveButtonInfo(GameManager.DIAMONDCANNONCHECK, 9);
+
                 break;
+        }
+    }
+
+    private void ActiveButtonInfo(int valueCheck, int valueIndex)
+    {
+        Debug.Log(valueIndex +  "___"  + valueCheck);
+
+
+        if (valueCheck == 0)
+        {
+            if (GameManager.CoinCount >= GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].GetComponent<Cannon>().cost)
+            {
+                valueCheck = 1;
+                currentButton.GetComponentInChildren<Text>().text = "Use";
+                GameManager.CoinCount -= GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].GetComponent<Cannon>().cost;
+                GameManager.CANNONINDEXCHECK = valueIndex;
+            }
+            else
+            {
+                StoreManager.instance.notEnoughCoinsPanel.gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            GameManager.CANNONINDEXCHECK = valueIndex;
         }
     }
 }

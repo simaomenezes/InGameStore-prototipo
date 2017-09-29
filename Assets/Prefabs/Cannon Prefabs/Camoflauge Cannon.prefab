@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212013414028958106}
   - component: {fileID: 114753276589833382}
   m_Layer: 0
-  m_Name: Cinza Cannon 6
+  m_Name: Camoflauge Cannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1c71fd980c7fee49884685545cc2122, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cost: 175
+  cost: 300
 --- !u!212 &212013414028958106
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SortingLayerID: 1728033361
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300010, guid: 3f50d2a69f1b2df4a98734f63d643421, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3f50d2a69f1b2df4a98734f63d643421, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

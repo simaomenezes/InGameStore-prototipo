@@ -78,15 +78,15 @@ public class GameManager : MonoBehaviour {
 
 
             PlayerPrefs.SetInt(WOOD_CANNON, 1);
-            PlayerPrefs.SetInt(BRONZE_CANNON, 0);
-            PlayerPrefs.SetInt(SILVER_CANNON, 0);
-            PlayerPrefs.SetInt(ALUMINUN_CANNON, 0);
-            PlayerPrefs.SetInt(FLAME_CANNON, 0);
-            PlayerPrefs.SetInt(RAIBOW_CANNON, 0);
-            PlayerPrefs.SetInt(CAMOFLAUGE_CANNON, 0);
-            PlayerPrefs.SetInt(CARBONFIBER_CANNON, 0);
-            PlayerPrefs.SetInt(GOLD_CANNON, 0);
-            PlayerPrefs.SetInt(DIAMOND_CANNON, 0);
+            //PlayerPrefs.SetInt(BRONZE_CANNON, 0);
+            //PlayerPrefs.SetInt(SILVER_CANNON, 0);
+            //PlayerPrefs.SetInt(ALUMINUN_CANNON, 0);
+            //PlayerPrefs.SetInt(FLAME_CANNON, 0);
+            //PlayerPrefs.SetInt(RAIBOW_CANNON, 0);
+            //PlayerPrefs.SetInt(CAMOFLAUGE_CANNON, 0);
+            //PlayerPrefs.SetInt(CARBONFIBER_CANNON, 0);
+            //PlayerPrefs.SetInt(GOLD_CANNON, 0);
+            //PlayerPrefs.SetInt(DIAMOND_CANNON, 0);
         }
 		
 	}

@@ -40,53 +40,51 @@ public class BuyAnddUseCard : MonoBehaviour {
                 break;
 
             case BRONZE_CANNON:
-                ActiveButtonInfo(GameManager.BRONZECANNONCHECK, 1);
+                ActiveButtonInfo(GameManager.BRONZECANNONCHECK, 1, BRONZE_CANNON);
                 break;
 
             case SILVER_CANNON:
-                ActiveButtonInfo(GameManager.SILVERCANNONCHECK, 2);
+                ActiveButtonInfo(GameManager.SILVERCANNONCHECK, 2, SILVER_CANNON);
                 break;
 
             case ALUMINUN_CANNON:
-                ActiveButtonInfo(GameManager.ALUMINUNCANNONCHECK, 3);
+                ActiveButtonInfo(GameManager.ALUMINUNCANNONCHECK, 3, ALUMINUN_CANNON);
                 break;
 
             case FLAME_CANNON:
-                ActiveButtonInfo(GameManager.FLAMECANNONCHECK, 4);
+                ActiveButtonInfo(GameManager.FLAMECANNONCHECK, 4, FLAME_CANNON);
 
                 break;
 
             case RAIBOW_CANNON:
-                ActiveButtonInfo(GameManager.RAIBOWCANNONCHECK, 5);
+                ActiveButtonInfo(GameManager.RAIBOWCANNONCHECK, 5, RAIBOW_CANNON);
 
                 break;
 
             case CAMOFLAUGE_CANNON:
-                ActiveButtonInfo(GameManager.CAMOFLAUGECANNONCHECK, 6);
+                ActiveButtonInfo(GameManager.CAMOFLAUGECANNONCHECK, 6, CAMOFLAUGE_CANNON);
 
                 break;
 
             case CARBONFIBER_CANNON:
-                ActiveButtonInfo(GameManager.CARBONFIBERCANNONCHECK, 7);
+                ActiveButtonInfo(GameManager.CARBONFIBERCANNONCHECK, 7, CARBONFIBER_CANNON);
 
                 break;
 
             case GOLD_CANNON:
-                ActiveButtonInfo(GameManager.GOLDCANNONCHECK, 8);
+                ActiveButtonInfo(GameManager.GOLDCANNONCHECK, 8, GOLD_CANNON);
 
                 break;
 
             case DIAMOND_CANNON:
-                ActiveButtonInfo(GameManager.DIAMONDCANNONCHECK, 9);
+                ActiveButtonInfo(GameManager.DIAMONDCANNONCHECK, 9, DIAMOND_CANNON);
 
                 break;
         }
     }
 
-    private void ActiveButtonInfo(int valueCheck, int valueIndex)
+    private void ActiveButtonInfo(int valueCheck, int valueIndex, string cannonName)
     {
-        Debug.Log(valueIndex +  "___"  + valueCheck);
-
 
         if (valueCheck == 0)
         {
@@ -97,6 +95,7 @@ public class BuyAnddUseCard : MonoBehaviour {
                 StoreManager.instance.timeBetweenDecrement = StoreManager.instance.decrementTimeConstant / GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].GetComponent<Cannon>().cost;
 
                 valueCheck = 1;
+                SetValueCheckPlayerPrefs(cannonName, valueCheck);
                 currentButton.GetComponentInChildren<Text>().text = "Use";
                 GameManager.CoinCount -= GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].GetComponent<Cannon>().cost;
                 GameManager.CANNONINDEXCHECK = valueIndex;
@@ -118,6 +117,55 @@ public class BuyAnddUseCard : MonoBehaviour {
                 GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].gameObject.name,
                 GameManager.instance.GetComponent<CannonArray>().cannonImages[valueIndex]
             );
+        }
+    }
+
+    // salva nas preferencia de usuario o cannon selecionado | comprado
+    private void SetValueCheckPlayerPrefs(string cannonName, int valueCheck)
+    {
+        switch (cannonName)
+        {
+            case WOOD_CANNON:
+                GameManager.WOODCANNONCHECK = 0;
+                StoreManager.instance.EquippedNewCannon(GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[0].gameObject.name, GameManager.instance.GetComponent<CannonArray>().cannonImages[0]);
+                break;
+
+            case BRONZE_CANNON:
+                GameManager.BRONZECANNONCHECK = valueCheck;
+                break;
+
+            case SILVER_CANNON:
+                GameManager.SILVERCANNONCHECK = valueCheck;
+                break;
+
+            case ALUMINUN_CANNON:
+                GameManager.ALUMINUNCANNONCHECK = valueCheck;
+                break;
+
+            case FLAME_CANNON:
+                GameManager.FLAMECANNONCHECK = valueCheck;
+                break;
+
+            case RAIBOW_CANNON:
+                GameManager.RAIBOWCANNONCHECK = valueCheck;
+                break;
+
+            case CAMOFLAUGE_CANNON:
+                GameManager.CAMOFLAUGECANNONCHECK = valueCheck;
+
+                break;
+
+            case CARBONFIBER_CANNON:
+                GameManager.CARBONFIBERCANNONCHECK = valueCheck;
+                break;
+
+            case GOLD_CANNON:
+                GameManager.GOLDCANNONCHECK = valueCheck;
+                break;
+
+            case DIAMOND_CANNON:
+                GameManager.DIAMONDCANNONCHECK = valueCheck;
+                break;
         }
     }
 }

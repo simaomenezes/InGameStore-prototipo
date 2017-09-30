@@ -36,6 +36,7 @@ public class BuyAnddUseCard : MonoBehaviour {
         {
             case WOOD_CANNON:
                 GameManager.WOODCANNONCHECK = 0;
+                StoreManager.instance.EquippedNewCannon(GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[0].gameObject.name,GameManager.instance.GetComponent<CannonArray>().cannonImages[0]);
                 break;
 
             case BRONZE_CANNON:
@@ -95,6 +96,11 @@ public class BuyAnddUseCard : MonoBehaviour {
                 currentButton.GetComponentInChildren<Text>().text = "Use";
                 GameManager.CoinCount -= GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].GetComponent<Cannon>().cost;
                 GameManager.CANNONINDEXCHECK = valueIndex;
+
+                StoreManager.instance.EquippedNewCannon(
+                    GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].gameObject.name, 
+                    GameManager.instance.GetComponent<CannonArray>().cannonImages[valueIndex]
+                );
             }
             else
             {
@@ -104,6 +110,10 @@ public class BuyAnddUseCard : MonoBehaviour {
         else
         {
             GameManager.CANNONINDEXCHECK = valueIndex;
+            StoreManager.instance.EquippedNewCannon(
+                GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].gameObject.name,
+                GameManager.instance.GetComponent<CannonArray>().cannonImages[valueIndex]
+            );
         }
     }
 }

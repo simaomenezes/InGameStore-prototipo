@@ -331,14 +331,14 @@ RectTransform:
   m_GameObject: {fileID: 199843377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.01885618, y: 0.01885618, z: 0.01885618}
+  m_LocalScale: {x: 0.018265856, y: 0.018265856, z: 0.018265856}
   m_Children:
   - {fileID: 89103189}
   - {fileID: 1350556005}
   - {fileID: 1875002342}
   - {fileID: 429205552}
-  - {fileID: 1944869900}
   - {fileID: 818444039}
+  - {fileID: 1944869900}
   - {fileID: 1611469779}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -663,7 +663,7 @@ RectTransform:
   m_Children:
   - {fileID: 1727681040}
   m_Father: {fileID: 199843381}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -682,7 +682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.466}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -844,7 +844,7 @@ GameObject:
   - component: {fileID: 1240650058}
   - component: {fileID: 1240650057}
   m_Layer: 5
-  m_Name: cannon imeag
+  m_Name: cannon image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1020,6 +1020,7 @@ MonoBehaviour:
   scrollArea: {fileID: 818444038}
   coinCountText: {fileID: 1742013033}
   notEnoughCoinsPanel: {fileID: 1611469778}
+  equippedPanel: {fileID: 1944869899}
 --- !u!1 &1350556004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1258,7 +1259,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1611469778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04837036, y: -12.16507, z: 0}
+  m_LocalPosition: {x: 14.524384, y: -20.734772, z: 0}
   m_LocalScale: {x: 0.52235156, y: 0.64999986, z: 1}
   m_Children:
   - {fileID: 256937090}
@@ -1442,7 +1443,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.509}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1828,6 +1829,7 @@ GameObject:
   - component: {fileID: 1944869900}
   - component: {fileID: 1944869902}
   - component: {fileID: 1944869901}
+  - component: {fileID: 1944869903}
   m_Layer: 5
   m_Name: EquippedPanel
   m_TagString: Untagged
@@ -1842,18 +1844,18 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1944869899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -493, z: 0}
+  m_LocalPosition: {x: 0, y: -492, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1240650056}
   - {fileID: 1545639797}
   - {fileID: 1448141754}
   m_Father: {fileID: 199843381}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -493}
+  m_AnchoredPosition: {x: 0, y: -492}
   m_SizeDelta: {x: 354.2, y: 247.09998}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1944869901
@@ -1889,6 +1891,23 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1944869899}
+--- !u!95 &1944869903
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1944869899}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ebe7266269a6cf244b5b16f502dbeb53, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1962904964
 GameObject:
   m_ObjectHideFlags: 0

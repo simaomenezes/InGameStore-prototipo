@@ -13,6 +13,7 @@ public class StoreManager : MonoBehaviour {
     public GameObject scrollArea;
     public Text coinCountText;
     public GameObject notEnoughCoinsPanel;
+    public GameObject equippedPanel;
 
     private const string WOOD_CANNON = "Wood Cannon";
     private const string BRONZE_CANNON = "Bronze Cannon";
@@ -162,5 +163,35 @@ public class StoreManager : MonoBehaviour {
     public void CloseNotEnoughCoinsPanel()
     {
         StoreManager.instance.notEnoughCoinsPanel.gameObject.SetActive(false);
+    }
+
+    public void EquippedNewCannon(string cannonName, Sprite cannonImage)
+    {
+
+        Debug.Log(cannonName);
+        Debug.Log(cannonImage);
+
+        equippedPanel.GetComponentInChildren<Text>().text = cannonName;
+        GameObject g = GameObject.Find("cannon image");
+
+
+
+        Debug.Log(g.transform.parent.name);
+
+
+        if (g.transform.parent.name == "EquippedPanel")
+        {
+            GameObject.Find("cannon image").GetComponent<Image>().sprite = cannonImage;
+        }
+
+        StartCoroutine(EquippedNewCannonPanelAnimationWait());
+    }
+
+    // chama a animação do painel que equipa o cannon
+    IEnumerator EquippedNewCannonPanelAnimationWait()
+    {
+        equippedPanel.GetComponent<Animator>().Play("EquippedPanelIn");
+        yield return new WaitForSeconds(1.5f);
+        equippedPanel.GetComponent<Animator>().Play("EquippedPanelOut");
     }
 }

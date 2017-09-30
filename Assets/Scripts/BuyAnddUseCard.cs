@@ -92,6 +92,10 @@ public class BuyAnddUseCard : MonoBehaviour {
         {
             if (GameManager.CoinCount >= GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].GetComponent<Cannon>().cost)
             {
+
+                StoreManager.instance.justBoughtCannon = true;
+                StoreManager.instance.timeBetweenDecrement = StoreManager.instance.decrementTimeConstant / GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].GetComponent<Cannon>().cost;
+
                 valueCheck = 1;
                 currentButton.GetComponentInChildren<Text>().text = "Use";
                 GameManager.CoinCount -= GameManager.instance.GetComponent<CannonArray>().cannonPrefabs[valueIndex].GetComponent<Cannon>().cost;

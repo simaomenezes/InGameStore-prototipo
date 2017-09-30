@@ -15,6 +15,16 @@ public class StoreManager : MonoBehaviour {
     public GameObject notEnoughCoinsPanel;
     public GameObject equippedPanel;
 
+    [HideInInspector]
+    public bool justBoughtCannon;
+
+    private int temporaryCoinCount;
+
+    public float decrementTimeConstant = 1f;
+    public float timeBetweenDecrement;
+
+
+
     private const string WOOD_CANNON = "Wood Cannon";
     private const string BRONZE_CANNON = "Bronze Cannon";
     private const string SILVER_CANNON = "Silver Cannon";
@@ -37,11 +47,38 @@ public class StoreManager : MonoBehaviour {
         MakeInstance();
         MakeCardPanel();
         AddScrollAbilities();
+
+        justBoughtCannon = false;
+        temporaryCoinCount = GameManager.CoinCount;
     }
 
     private void Update()
     {
-        coinCountText.text = GameManager.CoinCount.ToString();
+        if (!justBoughtCannon)
+        {
+            temporaryCoinCount = GameManager.CoinCount;
+        }
+        
+        coinCountText.text = temporaryCoinCount.ToString();
+
+        if (temporaryCoinCount > GameManager.CoinCount)
+        {
+            if (!IsInvoking("DecrementCoins"))
+            {
+                InvokeRepeating("DecrementCoins", 0f, timeBetweenDecrement);
+            }
+        }
+    }
+
+    void DecrementCoins()
+    {
+        temporaryCoinCount--;
+
+        if (temporaryCoinCount <= GameManager.CoinCount)
+        {
+            CancelInvoke();
+            justBoughtCannon = false;
+        }
     }
 
     void MakeInstance()

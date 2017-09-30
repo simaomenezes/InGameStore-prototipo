@@ -331,7 +331,7 @@ RectTransform:
   m_GameObject: {fileID: 199843377}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.018265856, y: 0.018265856, z: 0.018265856}
+  m_LocalScale: {x: 0.018260978, y: 0.018260978, z: 0.018260978}
   m_Children:
   - {fileID: 89103189}
   - {fileID: 1350556005}
@@ -1021,6 +1021,9 @@ MonoBehaviour:
   coinCountText: {fileID: 1742013033}
   notEnoughCoinsPanel: {fileID: 1611469778}
   equippedPanel: {fileID: 1944869899}
+  justBoughtCannon: 0
+  decrementTimeConstant: 1
+  timeBetweenDecrement: 0
 --- !u!1 &1350556004
 GameObject:
   m_ObjectHideFlags: 0
@@ -1259,7 +1262,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1611469778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 14.524384, y: -20.734772, z: 0}
+  m_LocalPosition: {x: 14.40741, y: -20.807892, z: 0}
   m_LocalScale: {x: 0.52235156, y: 0.64999986, z: 1}
   m_Children:
   - {fileID: 256937090}
